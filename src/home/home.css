@@ -150,6 +150,8 @@
     font-size: 1.05rem;
     font-weight: 700;
     text-decoration: none;
+    position: relative;
+    overflow: hidden; /* Crucial for keeping the shine inside the buttons */
     transition: transform 0.2s var(--easing), box-shadow 0.2s var(--easing), background 0.2s var(--easing);
 }
 
@@ -177,25 +179,28 @@
     background: rgba(255, 255, 255, 0.1);
 }
 
-/* --- Connect Button --- */
-.connect-btn {
-    display: inline-block;
-    background-color: #000000;
-    color: #ffffff;
-    padding: 14px 28px;
-    border-radius: 8px; 
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    margin-top: 20px;
-    transition: background 0.3s ease, transform 0.2s ease;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+/* The actual "shine" element */
+.bento-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.6) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: skewX(-25deg); /* Angles the shine */
+    animation: shineSweep 4s infinite; /* Sweeps across every 4 seconds */
 }
 
-.connect-btn:hover {
-    background-color: #1a1a1a;
-    transform: translateY(-2px);
+@keyframes shineSweep {
+    0% { left: -100%; }
+    20% { left: 200%; }
+    100% { left: 200%; } /* The gap between 20% and 100% creates a pause between shines */
 }
 
 /* --- Animations & Responsive --- */
@@ -204,6 +209,32 @@
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+/* --- Animated Text Gradient --- */
+.animated-gradient-text {
+    /* Rainbow colors */
+    background: linear-gradient(
+        180deg, 
+        #ff0000 0%, 
+        #ff7f00 16%, 
+        #ffff00 33%, 
+        #00ff00 50%, 
+        #0000ff 66%, 
+        #4b0082 83%, 
+        #9400d3 100%
+    );
+    background-size: 100% 200%;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientShift 3s ease-in-out infinite alternate;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 50% 0%; }
+    100% { background-position: 50% 100%; }
 }
 
 @media (max-width: 900px) {
