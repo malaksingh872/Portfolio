@@ -1,0 +1,232 @@
+/* =====================================================================
+   home.css — Bento Box Layout Redesign
+   ===================================================================== */
+
+.bento-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+    animation: bentoReveal 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    opacity: 0;
+    transform: translateY(24px);
+}
+
+.bento-box {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 28px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: transform 0.3s var(--easing), background 0.3s var(--easing), border-color 0.3s var(--easing);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.bento-box::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%; right: -50%; bottom: -50%;
+    background: radial-gradient(circle at center, rgba(132, 212, 78, 0.08) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.4s var(--easing);
+    pointer-events: none;
+}
+
+.bento-box:hover {
+    transform: translateY(-4px);
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.18);
+}
+
+.bento-box:hover::before {
+    opacity: 1;
+}
+
+/* --- Grid Placements --- */
+.bento-hero {
+    grid-column: span 2;
+    grid-row: span 2;
+    padding: 48px;
+    justify-content: center;
+}
+
+.bento-skill {
+    grid-column: span 1;
+    align-items: center;
+    text-align: center;
+}
+
+.bento-actions {
+    grid-column: span 2;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    padding: 24px;
+    background: transparent;
+    border: none;
+    backdrop-filter: none;
+}
+
+.bento-actions:hover {
+    transform: none; 
+    background: transparent; 
+    border-color: transparent;
+}
+
+/* --- Typography --- */
+/* --- Hero Header & Typing Effect --- */
+.hero-name {
+    font-family: var(--display-font, sans-serif);
+    font-size: clamp(2rem, 4vw, 3.8rem);
+    font-weight: 800;
+    color: var(--text, #ffffff);
+    margin: 0 0 10px 0;
+}
+
+.hero-role {
+    font-family: var(--display-font, sans-serif);
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-weight: 700;
+    color: var(--text, #ffffff);
+    margin: 0 0 24px 0;
+}
+
+.typing-text {
+    color: #ff0000; /* The striking red from the screenshot */
+}
+
+.cursor {
+    color: #ff0000;
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.hero-desc {
+    font-size: 1.12rem;
+    line-height: 1.6;
+    color: var(--muted);
+    max-width: 90%;
+    margin: 0;
+}
+
+.bento-icon {
+    font-size: 3.2rem;
+    margin-bottom: 16px;
+    filter: drop-shadow(0 8px 16px rgba(0,0,0,0.2));
+}
+
+.bento-title {
+    font-family: var(--display-font);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text);
+    margin: 0 0 8px 0;
+}
+
+.bento-desc {
+    font-size: 0.92rem;
+    color: var(--muted);
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* --- Buttons --- */
+.bento-btn {
+    flex: 1;
+    text-align: center;
+    padding: 16px 24px;
+    border-radius: 20px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.2s var(--easing), box-shadow 0.2s var(--easing), background 0.2s var(--easing);
+}
+
+.bento-btn.primary {
+    background: var(--accent);
+    color: #071105;
+    box-shadow: 0 8px 24px rgba(132, 212, 78, 0.25);
+}
+
+.bento-btn.secondary {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.bento-btn:hover {
+    transform: translateY(-2px);
+}
+
+.bento-btn.primary:hover {
+    box-shadow: 0 12px 32px rgba(132, 212, 78, 0.35);
+}
+
+.bento-btn.secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* --- Connect Button --- */
+.connect-btn {
+    display: inline-block;
+    background-color: #000000;
+    color: #ffffff;
+    padding: 14px 28px;
+    border-radius: 8px; 
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-top: 20px;
+    transition: background 0.3s ease, transform 0.2s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.connect-btn:hover {
+    background-color: #1a1a1a;
+    transform: translateY(-2px);
+}
+
+/* --- Animations & Responsive --- */
+@keyframes bentoReveal {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 900px) {
+    .bento-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .bento-actions {
+        flex-direction: column;
+    }
+    .bento-btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .bento-container {
+        grid-template-columns: 1fr;
+    }
+    .bento-hero, .bento-skill, .bento-actions {
+        grid-column: span 1;
+        grid-row: auto;
+    }
+    .bento-hero {
+        padding: 32px 24px;
+    }
+}
