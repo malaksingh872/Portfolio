@@ -13,105 +13,6 @@ body {
     min-height: 100vh;
 }
 
-/* =====================================================================
-   Floating Navigation Header
-   ===================================================================== */
-.top-nav {
-    position: fixed;
-    top: 24px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: rgba(15, 22, 38, 0.6); /* Translucent dark blue */
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    padding: 8px 16px 8px 8px;
-    border-radius: 50px;
-    border: 1px solid rgba(0, 229, 255, 0.15);
-    z-index: 1000;
-    width: 90%;
-    max-width: 700px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
-}
-
-.nav-logo {
-    width: 40px;
-    height: 40px;
-    border-radius: 50px; 
-    background: linear-gradient(135deg, #00E5FF, #8B5CF6);
-    color: #050914;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start; 
-    font-weight: 800;
-    font-size: 1rem;
-    letter-spacing: 1px;
-    box-shadow: 0 0 15px rgba(0, 229, 255, 0.4);
-    text-decoration: none;
-    overflow: hidden;
-    transition: width 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease, transform 0.3s ease;
-}
-
-.nav-logo:hover {
-    width: 115px; /* Expanded slightly to account for the new gap */
-    transform: translateY(-2px);
-    box-shadow: 0 4px 20px rgba(0, 229, 255, 0.6);
-}
-
-.logo-initials {
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-}
-
-.logo-about {
-    white-space: nowrap;
-    font-weight: 700;
-    margin-left: 8px; /* Adds adequate space between "MS" and "About" */
-    opacity: 0;
-    transform: translateX(-10px);
-    transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-
-.nav-logo:hover .logo-about {
-    opacity: 1;
-    transform: translateX(0);
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 8px;
-    margin: 0;
-    padding: 0;
-}
-
-.nav-links li a {
-    text-decoration: none;
-    color: #94a3b8; /* Muted slate text */
-    font-weight: 600;
-    font-size: 0.95rem;
-    padding: 8px 16px;
-    border-radius: 20px;
-    transition: all 0.3s ease;
-}
-
-.nav-links li a:hover {
-    color: #00E5FF; /* Cyan on hover */
-    background: rgba(0, 229, 255, 0.08);
-}
-
-.nav-links li a.active {
-    color: #ffffff;
-    background: rgba(139, 92, 246, 0.2); /* Soft purple background for active tab */
-    border: 1px solid rgba(139, 92, 246, 0.3);
-}
-
 .bento-container {
     display: flex;
     flex-direction: column;
@@ -308,17 +209,6 @@ body {
     }
 }
 
-/* Responsive adjustment for the new header */
-@media (max-width: 600px) {
-    .nav-links {
-        display: none; /* Hides the text links on very small screens for now */
-    }
-    .top-nav {
-        justify-content: center;
-        padding: 12px;
-    }
-}
-
 /* =====================================================================
    Grid Layouts (Tools & Projects)
    ===================================================================== */
@@ -470,41 +360,6 @@ body {
 
 .timeline-bullets li {
     margin-bottom: 8px;
-}
-
-/* =====================================================================
-   Footer
-   ===================================================================== */
-.cyber-footer {
-    border-top: 1px solid rgba(0, 229, 255, 0.1);
-    padding: 40px 0;
-    text-align: center;
-    margin-top: 60px;
-}
-
-.footer-links {
-    display: flex;
-    justify-content: center;
-    gap: 32px;
-    margin-bottom: 16px;
-}
-
-.footer-links a {
-    color: #94a3b8;
-    text-decoration: none;
-    font-size: 0.95rem;
-    transition: color 0.3s ease;
-}
-
-.footer-links a:hover {
-    color: #00E5FF;
-}
-
-.footer-copy {
-    color: #475569;
-    font-size: 0.85rem;
-    font-family: monospace;
-    margin: 0;
 }
 
 /* =====================================================================
