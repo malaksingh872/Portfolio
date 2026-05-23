@@ -32,7 +32,8 @@ function typeEffect() {
     }
 
     // Determine the speed of the next frame
-    let speed = isDeleting ? deletingSpeed : typingSpeed;
+    // Add slight randomness to typing speed for a more natural, human feel
+    let speed = isDeleting ? deletingSpeed : typingSpeed + (Math.random() * 50 - 25);
 
     // If word is fully typed out
     if (!isDeleting && charIndex === currentRole.length) {
