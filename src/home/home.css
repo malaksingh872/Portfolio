@@ -39,16 +39,48 @@ body {
 .nav-logo {
     width: 40px;
     height: 40px;
-    border-radius: 50%;
+    border-radius: 50px; 
     background: linear-gradient(135deg, #00E5FF, #8B5CF6);
     color: #050914;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start; 
     font-weight: 800;
     font-size: 1rem;
     letter-spacing: 1px;
     box-shadow: 0 0 15px rgba(0, 229, 255, 0.4);
+    text-decoration: none;
+    overflow: hidden;
+    transition: width 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.nav-logo:hover {
+    width: 115px; /* Expanded slightly to account for the new gap */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0, 229, 255, 0.6);
+}
+
+.logo-initials {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.logo-about {
+    white-space: nowrap;
+    font-weight: 700;
+    margin-left: 8px; /* Adds adequate space between "MS" and "About" */
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.nav-logo:hover .logo-about {
+    opacity: 1;
+    transform: translateX(0);
 }
 
 .nav-links {
@@ -627,4 +659,16 @@ body {
 .cyber-actions {
     display: flex;
     gap: 20px;
+}
+
+/* =====================================================================
+   Accessibility (Reduced Motion)
+   ===================================================================== */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
 }

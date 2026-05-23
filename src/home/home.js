@@ -1,5 +1,5 @@
 const roles = [
-    "a Student & Aspiring Engineer",
+    "Mechatronics Student",
     "Software Developer",
     "CAD Designer",
     "a Tech Enthusiast",
@@ -9,6 +9,7 @@ const roles = [
 let roleIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
+let typingElement = null;
 
 // Timing variables
 const typingSpeed = 100;
@@ -16,8 +17,9 @@ const deletingSpeed = 50;
 const delayBetweenWords = 2000;
 
 function typeEffect() {
+    if (!typingElement) return; // Safety check
+
     const currentRole = roles[roleIndex];
-    const typingElement = document.querySelector('.typing-text');
 
     if (isDeleting) {
         // Remove a character
@@ -49,7 +51,8 @@ function typeEffect() {
 
 // Start the animation when the page loads
 document.addEventListener("DOMContentLoaded", function() {
-    if (roles.length > 0) {
+    typingElement = document.querySelector('.typing-text');
+    if (roles.length > 0 && typingElement) {
         setTimeout(typeEffect, 500);
     }
 });
