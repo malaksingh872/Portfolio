@@ -1,0 +1,23 @@
+{
+  "name": "malak-singh-portfolio-template",
+  "version": "1.0.0",
+  "description": "A dark-themed, cyber-styled bento box portfolio website.",
+  "main": "src/home/home.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "serve ."
+  },
+  "keywords": [
+    "portfolio",
+    "template",
+    "bento-box",
+    "cyberpunk",
+    "html",
+    "css"
+  ],
+  "author": "Malak Singh",
+  "license": "MIT",
+  "devDependencies": {
+    "serve": "^14.2.6"
+  }
+}
