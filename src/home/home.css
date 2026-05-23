@@ -2,10 +2,88 @@
    home.css — Bento Box Layout Redesign
    ===================================================================== */
 
+/* --- Global Base --- */
+body {
+    background-color: #050914; /* Deep space blue/black */
+    background-image: radial-gradient(circle at top center, rgba(0, 229, 255, 0.05), transparent 70%);
+    color: #e2e8f0; /* Soft, readable off-white */
+    font-family: var(--display-font, sans-serif);
+    margin: 0;
+    padding-top: 100px; /* Gives space so the header doesn't overlap the bento boxes */
+    min-height: 100vh;
+}
+
+/* =====================================================================
+   Floating Navigation Header
+   ===================================================================== */
+.top-nav {
+    position: fixed;
+    top: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(15, 22, 38, 0.6); /* Translucent dark blue */
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    padding: 8px 16px 8px 8px;
+    border-radius: 50px;
+    border: 1px solid rgba(0, 229, 255, 0.15);
+    z-index: 1000;
+    width: 90%;
+    max-width: 700px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+.nav-logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #00E5FF, #8B5CF6);
+    color: #050914;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    box-shadow: 0 0 15px rgba(0, 229, 255, 0.4);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #94a3b8; /* Muted slate text */
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: #00E5FF; /* Cyan on hover */
+    background: rgba(0, 229, 255, 0.08);
+}
+
+.nav-links li a.active {
+    color: #ffffff;
+    background: rgba(139, 92, 246, 0.2); /* Soft purple background for active tab */
+    border: 1px solid rgba(139, 92, 246, 0.3);
+}
+
 .bento-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
     padding: 20px;
     max-width: 1100px;
     margin: 0 auto;
@@ -15,69 +93,30 @@
 }
 
 .bento-box {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: #0B1221; /* Rich dark navy card */
+    border: 1px solid rgba(0, 229, 255, 0.1);
     border-radius: 28px;
     padding: 32px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    transition: transform 0.3s var(--easing), background 0.3s var(--easing), border-color 0.3s var(--easing);
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     position: relative;
     overflow: hidden;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-}
-
-.bento-box::before {
-    content: '';
-    position: absolute;
-    top: -50%; left: -50%; right: -50%; bottom: -50%;
-    background: radial-gradient(circle at center, rgba(132, 212, 78, 0.08) 0%, transparent 50%);
-    opacity: 0;
-    transition: opacity 0.4s var(--easing);
-    pointer-events: none;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4); 
 }
 
 .bento-box:hover {
     transform: translateY(-4px);
-    background: rgba(255, 255, 255, 0.06);
-    border-color: rgba(255, 255, 255, 0.18);
-}
-
-.bento-box:hover::before {
-    opacity: 1;
+    border-color: rgba(0, 229, 255, 0.4);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 229, 255, 0.05) inset;
 }
 
 /* --- Grid Placements --- */
-.bento-hero {
-    grid-column: span 2;
-    grid-row: span 2;
-    padding: 48px;
-    justify-content: center;
-}
 
 .bento-skill {
-    grid-column: span 1;
     align-items: center;
     text-align: center;
-}
-
-.bento-actions {
-    grid-column: span 2;
-    flex-direction: row;
-    align-items: center;
-    gap: 20px;
-    padding: 24px;
-    background: transparent;
-    border: none;
-    backdrop-filter: none;
-}
-
-.bento-actions:hover {
-    transform: none; 
-    background: transparent; 
-    border-color: transparent;
 }
 
 /* --- Typography --- */
@@ -98,12 +137,11 @@
     margin: 0 0 24px 0;
 }
 
-.typing-text {
-    color: #ff0000; /* The striking red from the screenshot */
+.typing-text, .cursor {
+    color: #00E5FF; /* Electric Cyan */
 }
 
 .cursor {
-    color: #ff0000;
     animation: blink 1s step-end infinite;
 }
 
@@ -145,62 +183,47 @@
 .bento-btn {
     flex: 1;
     text-align: center;
-    padding: 16px 24px;
-    border-radius: 20px;
-    font-size: 1.05rem;
+    padding: 16px 32px;
+    border-radius: 50px; /* Fully rounded pill shape */
+    font-size: 1.1rem;
     font-weight: 700;
     text-decoration: none;
     position: relative;
-    overflow: hidden; /* Crucial for keeping the shine inside the buttons */
-    transition: transform 0.2s var(--easing), box-shadow 0.2s var(--easing), background 0.2s var(--easing);
+    transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    z-index: 1;
 }
 
+/* Primary Button (Explore Projects) */
 .bento-btn.primary {
-    background: var(--accent);
-    color: #071105;
-    box-shadow: 0 8px 24px rgba(132, 212, 78, 0.25);
-}
-
-.bento-btn.secondary {
-    background: rgba(255, 255, 255, 0.05);
-    color: var(--text);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.bento-btn:hover {
-    transform: translateY(-2px);
+    background: #00E5FF; 
+    color: #050914; 
+    border: 2px solid #00E5FF;
+    box-shadow: 0 0 15px rgba(0, 229, 255, 0.3); 
 }
 
 .bento-btn.primary:hover {
-    box-shadow: 0 12px 32px rgba(132, 212, 78, 0.35);
+    background: #33eeff;
+    box-shadow: 0 0 25px rgba(0, 229, 255, 0.6), 0 0 45px rgba(0, 229, 255, 0.3); 
+}
+
+/* Secondary Button (Contact Me) */
+.bento-btn.secondary {
+    background: rgba(0, 229, 255, 0.05);
+    color: #00E5FF;
+    border: 2px solid #00E5FF;
 }
 
 .bento-btn.secondary:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(0, 229, 255, 0.1);
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.3), 0 0 15px rgba(0, 229, 255, 0.2) inset; 
+    color: #ffffff;
+    border-color: #ffffff;
 }
 
-/* The actual "shine" element */
-.bento-btn::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 50%;
-    height: 100%;
-    background: linear-gradient(
-        to right,
-        rgba(255, 255, 255, 0) 0%,
-        rgba(255, 255, 255, 0.6) 50%,
-        rgba(255, 255, 255, 0) 100%
-    );
-    transform: skewX(-25deg); /* Angles the shine */
-    animation: shineSweep 4s infinite; /* Sweeps across every 4 seconds */
-}
-
-@keyframes shineSweep {
-    0% { left: -100%; }
-    20% { left: 200%; }
-    100% { left: 200%; } /* The gap between 20% and 100% creates a pause between shines */
+/* Optional: Active "Click" State */
+.bento-btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
 }
 
 /* --- Animations & Responsive --- */
@@ -211,30 +234,20 @@
     }
 }
 
-/* --- Animated Text Gradient --- */
 .animated-gradient-text {
-    /* Rainbow colors */
-    background: linear-gradient(
-        180deg, 
-        #ff0000 0%, 
-        #ff7f00 16%, 
-        #ffff00 33%, 
-        #00ff00 50%, 
-        #0000ff 66%, 
-        #4b0082 83%, 
-        #9400d3 100%
-    );
-    background-size: 100% 200%;
+    /* Shifts between Cyan and Indigo */
+    background: linear-gradient(to right, #ffffff 0%, #00E5FF 25%, #8B5CF6 50%, #00E5FF 75%, #ffffff 100%);
+    background-size: 200% auto;
     color: transparent;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: gradientShift 3s ease-in-out infinite alternate;
+    filter: drop-shadow(0 0 12px rgba(0, 229, 255, 0.4));
+    animation: cyberGlowShift 5s linear infinite;
 }
 
-@keyframes gradientShift {
-    0% { background-position: 50% 0%; }
-    100% { background-position: 50% 100%; }
+@keyframes cyberGlowShift {
+    to { background-position: 200% center; }
 }
 
 @media (max-width: 900px) {
@@ -260,4 +273,358 @@
     .bento-hero {
         padding: 32px 24px;
     }
+}
+
+/* Responsive adjustment for the new header */
+@media (max-width: 600px) {
+    .nav-links {
+        display: none; /* Hides the text links on very small screens for now */
+    }
+    .top-nav {
+        justify-content: center;
+        padding: 12px;
+    }
+}
+
+/* =====================================================================
+   Grid Layouts (Tools & Projects)
+   ===================================================================== */
+.cyber-grid {
+    display: grid;
+    gap: 24px;
+    margin-bottom: 48px;
+    width: 100%;
+}
+
+.two-col {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.three-col {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.section-heading {
+    font-size: 2rem;
+    color: #ffffff;
+    margin: 0 0 8px 0;
+}
+
+.section-subtext {
+    color: #94a3b8;
+    margin: 0 0 32px 0;
+    font-size: 1.05rem;
+}
+
+.box-title {
+    font-size: 1.4rem;
+    color: #ffffff;
+    margin: 0 0 16px 0;
+}
+
+.box-text {
+    color: #94a3b8;
+    line-height: 1.6;
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+/* Toolbelt Pills */
+.tech-pill-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+.tech-pill {
+    background: rgba(139, 92, 246, 0.1);
+    color: #b594f8; /* Soft Indigo */
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-family: monospace;
+    border: 1px solid rgba(139, 92, 246, 0.3);
+}
+
+/* Project Cards */
+.project-card {
+    justify-content: flex-start;
+}
+
+.micro-tag {
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    color: #00E5FF;
+    margin-bottom: 12px;
+    display: block;
+    font-family: monospace;
+}
+
+.project-title {
+    font-size: 1.25rem;
+    color: #ffffff;
+    margin: 0 0 12px 0;
+}
+
+/* =====================================================================
+   Vertical Timeline (Education & Logs)
+   ===================================================================== */
+.cyber-timeline {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto 60px auto;
+    padding-left: 40px; /* Space for the line */
+}
+
+/* The glowing vertical line */
+.cyber-timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 11px; /* Centers line within the padding */
+    width: 2px;
+    background: linear-gradient(180deg, #00E5FF 0%, rgba(139, 92, 246, 0.2) 100%);
+    box-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 32px;
+}
+
+/* The nodes on the timeline */
+.timeline-dot {
+    position: absolute;
+    left: -35px; /* Pulls dot over the vertical line */
+    top: 24px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #050914;
+    border: 2px solid #00E5FF;
+    box-shadow: 0 0 12px #00E5FF;
+    z-index: 2;
+}
+
+.timeline-content {
+    padding: 24px 32px;
+}
+
+.timeline-date {
+    font-size: 0.85rem;
+    color: #8B5CF6; /* Indigo */
+    letter-spacing: 1px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.timeline-title {
+    font-size: 1.3rem;
+    color: #ffffff;
+    margin: 0 0 12px 0;
+}
+
+.timeline-bullets {
+    color: #94a3b8;
+    margin: 16px 0 0 0;
+    padding-left: 20px;
+    line-height: 1.7;
+    font-size: 0.95rem;
+}
+
+.timeline-bullets li {
+    margin-bottom: 8px;
+}
+
+/* =====================================================================
+   Footer
+   ===================================================================== */
+.cyber-footer {
+    border-top: 1px solid rgba(0, 229, 255, 0.1);
+    padding: 40px 0;
+    text-align: center;
+    margin-top: 60px;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin-bottom: 16px;
+}
+
+.footer-links a {
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #00E5FF;
+}
+
+.footer-copy {
+    color: #475569;
+    font-size: 0.85rem;
+    font-family: monospace;
+    margin: 0;
+}
+
+/* =====================================================================
+   Mobile Responsiveness for Grids & Timeline
+   ===================================================================== */
+@media (max-width: 900px) {
+    .two-col, .three-col {
+        grid-template-columns: 1fr;
+    }
+    
+    .cyber-timeline {
+        padding-left: 30px;
+    }
+    
+    .cyber-timeline::before {
+        left: 9px;
+    }
+    
+    .timeline-dot {
+        left: -27px;
+    }
+}
+
+/* =====================================================================
+   Cyber HUD Hero Layout (Custom Design)
+   ===================================================================== */
+.cyber-hero {
+    grid-column: 1 / -1; 
+    padding: 60px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(180deg, rgba(11, 18, 33, 0.8) 0%, rgba(5, 9, 20, 0.9) 100%);
+    border-top: 2px solid rgba(0, 229, 255, 0.3);
+}
+
+/* --- Holographic Avatar --- */
+.cyber-avatar-wrapper {
+    position: relative;
+    width: 190px;
+    height: 190px;
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-pic-core {
+    width: 150px;
+    height: 150px;
+    background: #050914;
+    border-radius: 50%;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: #00E5FF;
+    border: 2px solid rgba(139, 92, 246, 0.5);
+    box-shadow: 0 0 30px rgba(0, 229, 255, 0.2) inset;
+    overflow: hidden; /* For when you add an img tag */
+}
+
+/* Rotating Tech Rings */
+.cyber-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px dashed;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.ring-1 {
+    width: 180px; height: 180px;
+    border-color: rgba(0, 229, 255, 0.6);
+    animation: spinRotate 10s linear infinite;
+}
+
+.ring-2 {
+    width: 210px; height: 210px;
+    border: 1px solid rgba(139, 92, 246, 0.4);
+    border-left-color: transparent;
+    border-right-color: transparent;
+    animation: spinRotate 15s linear infinite reverse;
+}
+
+@keyframes spinRotate {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* --- Terminal Intro --- */
+.cyber-intro {
+    max-width: 800px;
+    margin-bottom: 32px;
+}
+
+.terminal-line {
+    font-family: monospace;
+    font-size: 1.2rem;
+    margin-bottom: 24px;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 8px 16px;
+    border-radius: 8px;
+    display: inline-block;
+    border: 1px solid rgba(0, 229, 255, 0.1);
+}
+
+.prompt-arrow {
+    color: #8B5CF6; /* Indigo */
+    margin-right: 8px;
+}
+
+.hero-desc {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #94a3b8;
+}
+
+/* --- Data Tags (Highlights) --- */
+.cyber-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 40px;
+}
+
+.tech-tag {
+    background: rgba(15, 22, 38, 0.8);
+    color: #00E5FF;
+    padding: 8px 16px;
+    font-size: 0.85rem;
+    font-family: monospace;
+    letter-spacing: 1px;
+    border: 1px solid rgba(0, 229, 255, 0.2);
+    /* Clipped corners for a sci-fi shape */
+    clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+    transition: all 0.3s ease;
+}
+
+.tech-tag:hover {
+    background: rgba(0, 229, 255, 0.15);
+    border-color: #00E5FF;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 229, 255, 0.3);
+    color: #ffffff;
+}
+
+/* --- Actions --- */
+.cyber-actions {
+    display: flex;
+    gap: 20px;
 }

@@ -1,8 +1,9 @@
 const roles = [
-    "Aspiring Engineer",
+    "a Student & Aspiring Engineer",
     "Software Developer",
     "CAD Designer",
-    "Tech Enthusiast"
+    "a Tech Enthusiast",
+    "a Problem Solver"
 ];
 
 let roleIndex = 0;

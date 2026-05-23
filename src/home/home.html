@@ -7,47 +7,171 @@
     <link rel="stylesheet" href="home.css">
 </head>
 <body>
+    <nav class="top-nav">
+        <div class="nav-logo">MS</div>
+        <ul class="nav-links">
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#plans">Plans</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
     <div id="homePage" class="page-content active" aria-label="Home Page">
         <div class="bento-container">
             
             <!-- Hero / Welcome Box (Spans larger area) -->
-            <section class="bento-box bento-hero">
-                <div class="hero-content">
-                    <h1 class="hero-name">Hi, I am <span class="animated-gradient-text">Malak Singh</span></h1>
-                    <h2 class="hero-role">I am <span class="typing-text"></span><span class="cursor">_</span></h2>
+            <section class="bento-box bento-hero cyber-hero">
+                
+                <div class="cyber-avatar-wrapper">
+                    <div class="cyber-ring ring-1"></div>
+                    <div class="cyber-ring ring-2"></div>
+                    <div class="profile-pic-core">MS</div>
+                </div>
+            
+                <div class="cyber-intro">
+                    <h1 class="hero-name">Malak Singh</h1>
+                    <div class="terminal-line">
+                        <span class="prompt-arrow">I am </span> 
+                        <span class="typing-text"></span><span class="cursor">_</span>
+                    </div>
                     
                     <p class="hero-desc">
-                        I am a student and aspiring engineer passionate about combining mechanical design, software development, and embedded systems to solve practical problems from scratch.
+                        I am a student and aspiring engineer passionate about technology, programming, mechanical systems, and building real-world projects from scratch. My goal is to combine engineering, coding, and creativity to build meaningful technology and solve practical problems.
                     </p>
                 </div>
+            
+                <div class="cyber-tags">
+                    <span class="tech-tag">Mechatronics</span>
+                    <span class="tech-tag">Software Development</span>
+                    <span class="tech-tag">CAD & 3D Printing</span>
+                    <span class="tech-tag">Embedded Systems</span>
+                </div>
+            
+                <div class="cyber-actions">
+                    <a href="#projects" class="bento-btn primary">Explore Projects</a>
+                    <a href="#contact" class="bento-btn secondary">Contact Me</a>
+                </div>
+            
             </section>
 
-            <!-- Pillar 1: Mechanical Engineering -->
-            <section class="bento-box bento-skill">
-                <div class="bento-icon">⚙️</div>
-                <h4 class="bento-title">CAD & Prototyping</h4>
-                <p class="bento-desc">Onshape 3D modeling, component design, and 3D printing.</p>
-            </section>
+            <!-- Skills Pillars Grid -->
+            <div class="cyber-grid three-col">
+                <section class="bento-box bento-skill">
+                    <div class="bento-icon">⚙️</div>
+                    <h4 class="bento-title">CAD & Prototyping</h4>
+                    <p class="bento-desc">Onshape 3D modeling, component design, and 3D printing.</p>
+                </section>
 
-            <!-- Pillar 2: Python -->
-            <section class="bento-box bento-skill">
-                <div class="bento-icon">💻</div>
-                <h4 class="bento-title">Code & Systems</h4>
-                <p class="bento-desc">Web dev, Micro:bit, Python GUIs, and Docker self-hosting.</p>
-            </section>
+                <section class="bento-box bento-skill">
+                    <div class="bento-icon">💻</div>
+                    <h4 class="bento-title">Code & Systems</h4>
+                    <p class="bento-desc">Web dev, Micro:bit, Python GUIs, and Docker self-hosting.</p>
+                </section>
 
-            <!-- Actions / Navigation Box -->
-            <section class="bento-box bento-actions">
-                <a href="#projects" class="bento-btn primary nav-link" data-page="projects">Explore Projects</a>
-                <a href="#contact" class="bento-btn secondary nav-link" data-page="contact">Contact Me</a>
-            </section>
+                <section class="bento-box bento-skill">
+                    <div class="bento-icon">🏃🏽‍♂️</div>
+                    <h4 class="bento-title">Discipline & Drive</h4>
+                    <p class="bento-desc">Focused on discipline, endurance training, and self-improvement through 1500m race training and structured routines.</p>
+                </section>
+            </div>
 
-            <!-- Pillar 3: Discipline & Drive -->
-            <section class="bento-box bento-skill">
-                <div class="bento-icon">🏃🏽‍♂️</div>
-                <h4 class="bento-title">Discipline & Drive</h4>
-                <p class="bento-desc">Building stamina through long-distance endurance running and reading. Recently read: <em>Suzanne's Diary for Nicholas</em>.</p>
-            </section>
+            <div class="cyber-grid two-col">
+                <section class="bento-box">
+                    <h3 class="box-title">Engineering Philosophy</h3>
+                    <p class="box-text">
+                        I believe in practical, hands-on learning. Building projects from the ground up—whether it's drafting a CAD model or architecting a backend system—helps me understand the underlying mechanics deeper than theory alone.
+                    </p>
+                </section>
+
+                <section class="bento-box">
+                    <h3 class="box-title">My Toolbelt</h3>
+                    <p class="box-text">
+                        Bridging software and hardware. I regularly build and optimize using:
+                    </p>
+                    <div class="tech-pill-container">
+                        <span class="tech-pill">C / C++</span>
+                        <span class="tech-pill">Python</span>
+                        <span class="tech-pill">Unity / C#</span>
+                        <span class="tech-pill">Jetpack Compose</span>
+                        <span class="tech-pill">Onshape CAD</span>
+                    </div>
+                </section>
+            </div>
+
+            <div class="section-header">
+                <h2 class="section-heading">Project Highlights</h2>
+                <p class="section-subtext">Active development and recently deployed systems.</p>
+            </div>
+
+            <div class="cyber-grid three-col">
+                <section class="bento-box project-card">
+                    <span class="micro-tag">GAME DEVELOPMENT</span>
+                    <h3 class="project-title">Grid-Based Chess Engine</h3>
+                    <p class="box-text">
+                        A 2D chess project built in Unity. Focused on custom grid movement algorithms, prefab architecture, and establishing scalable gameplay loops from scratch.
+                    </p>
+                </section>
+
+                <section class="bento-box project-card">
+                    <span class="micro-tag">MOBILE FRONTEND</span>
+                    <h3 class="project-title">Pokémon Pokédex App</h3>
+                    <p class="box-text">
+                        Android Studio application utilizing Jetpack Compose and MVVM architecture to fetch, cache, and display complex API data layers.
+                    </p>
+                </section>
+
+                <section class="bento-box project-card">
+                    <span class="micro-tag">SYSTEMS & NETWORKS</span>
+                    <h3 class="project-title">Packet & Subnet Analyzer</h3>
+                    <p class="box-text">
+                        Deep dive into network layers. Analyzing IP packets, verifying checksums, and calculating subnet masks to understand low-level data transmission.
+                    </p>
+                </section>
+            </div>
+
+            <div class="section-header">
+                <h2 class="section-heading">System Logs & Education</h2>
+            </div>
+            
+            <div class="cyber-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content bento-box">
+                        <span class="timeline-date">EXPECTED 2028</span>
+                        <h3 class="timeline-title">Bachelor of Engineering / Computer Science</h3>
+                        <p class="box-text">
+                            Upper-level study focused on software engineering practices, embedded systems, and applied mechanical computing. Emphasis on design tradeoffs, performance, and building maintainable architecture.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content bento-box">
+                        <span class="timeline-date">CURRENT</span>
+                        <h3 class="timeline-title">Foundations & Self-Taught Development</h3>
+                        <p class="box-text">
+                            Building a robust foundation through hands-on project engineering.
+                        </p>
+                        <ul class="timeline-bullets">
+                            <li>Advanced networking, dynamic memory, and systems-level programming in C++.</li>
+                            <li>Designing 3D models and mechanical components for physical prototyping.</li>
+                            <li>Understanding how data moves across networks and protocols.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="cyber-footer">
+                <div class="footer-links">
+                    <a href="#">GitHub</a>
+                    <a href="#">LinkedIn</a>
+                    <a href="#">Contact</a>
+                </div>
+                <p class="footer-copy">© 2026 Malak Singh. All systems operational.</p>
+            </footer>
 
         </div>
     </div>
