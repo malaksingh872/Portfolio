@@ -465,7 +465,7 @@ body {
 /* The nodes on the timeline */
 .timeline-dot {
     position: absolute;
-    left: -35px; /* Pulls dot over the vertical line */
+    left: -37px; /* Pulls dot exactly over the center of the vertical line */
     top: 24px;
     width: 14px;
     height: 14px;
@@ -524,7 +524,7 @@ body {
     }
     
     .timeline-dot {
-        left: -27px;
+        left: -29px;
     }
 }
 
