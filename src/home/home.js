@@ -1,42 +1,5 @@
-/**
- * Fetches an HTML file and injects its content into a specified element.
- * Optionally loads associated CSS and JS files automatically.
- */
-async function loadComponent(elementId, componentPath, loadCss = true, loadJs = true) {
-    try {
-        const response = await fetch(componentPath);
-        if (!response.ok) throw new Error(`Could not load ${componentPath}`);
-        
-        const htmlContent = await response.text();
-        const placeholder = document.getElementById(elementId);
-        
-        if (placeholder) {
-            placeholder.innerHTML = htmlContent;
-
-            if (loadCss) {
-                const cssPath = componentPath.replace('.html', '.css');
-                const link = document.createElement('link');
-                link.rel = 'stylesheet';
-                link.href = cssPath;
-                document.head.appendChild(link);
-            }
-
-            if (loadJs) {
-                const jsPath = componentPath.replace('.html', '.js');
-                const script = document.createElement('script');
-                script.src = jsPath;
-                document.body.appendChild(script);
-            }
-        }
-    } catch (error) {
-        console.error("Error loading component:", error);
-    }
-}
-
 // Start the animation when the page loads
-document.addEventListener("DOMContentLoaded", async function() {
-    // Dynamically load the header (and footer if you have one)
-    await loadComponent("header-placeholder", "../header and footer/header.html");
+document.addEventListener("DOMContentLoaded", function() {
 
     const roles = [
         "Mechatronics Student",
