@@ -1,0 +1,16 @@
+/* =====================================================================
+   skill.css — Custom styles specifically for the Skills page
+   (Base layout and Bento Box styles are inherited from home.css)
+   ===================================================================== */
+
+/* Add a subtle glow specifically to the skills pills on hover */
+.tech-pill {
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.tech-pill:hover {
+    background: rgba(139, 92, 246, 0.3);
+    color: #ffffff;
+    box-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+}
