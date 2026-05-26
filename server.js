@@ -8,6 +8,9 @@ const PORT = process.env.PORT || 3000;
 // Serve static assets (like home.css and home.js) from the src/home folder securely
 app.use(express.static(path.join(__dirname, 'src', 'home')));
 
+// Serve the header folder so header.html and header.js can be fetched by the browser
+app.use('/header', express.static(path.join(__dirname, 'src', 'header')));
+
 // Route the root URL directly to index.html
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'src', 'home', 'index.html'));
